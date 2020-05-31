@@ -22,6 +22,7 @@ module.exports = {
     "no-default-export": 0,
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": 0,
+    "no-unused-vars": 0,
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": [1, { extensions: [".tsx", ".jsx"] }],
     "import/extensions": [

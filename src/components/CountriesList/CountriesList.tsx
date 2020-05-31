@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { List } from 'antd';
+import { Card, List } from 'antd';
 import {
   Country as CountryData,
   CountryVariables,
@@ -19,7 +19,8 @@ const CountriesList = () => {
       },
     },
   );
-  if (!data || !data.Country) return <h1>Please Wait</h1>;
+  if (error) return <h1>Error happened</h1>;
+  if (!data || !data.Country) return <h1>There is nothing no show here</h1>;
   return (
     <div className="countries-list-wrapper">
       <List
@@ -27,10 +28,16 @@ const CountriesList = () => {
         itemLayout="vertical"
         loading={loading}
         dataSource={data.Country}
+        grid={{ gutter: 16, column: 4 }}
         pagination={{
           onChange: (pageValue) => setPage(pageValue),
           pageSize: 10,
         }}
+        renderItem={(country) => (
+          <List.Item>
+            <Card title={country ? country.name : 'Unknown'}>Country</Card>
+          </List.Item>
+        )}
       />
     </div>
   );
