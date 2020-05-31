@@ -24,7 +24,11 @@ module.exports = {
     'react/prop-types': 0,
     'no-unused-vars': 0,
     'react/jsx-wrap-multilines': 0,
+    'no-confusing-arrow': 0,
+    'function-paren-newline': 0,
     'import/prefer-default-export': 'off',
+    'implicit-arrow-linebreak': 0,
+    indent: 0,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'import/extensions': [
       'error',

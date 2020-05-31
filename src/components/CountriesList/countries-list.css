@@ -1,3 +1,8 @@
+.countries-list-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .country-image {
     height: 200px;
     object-fit: contain;
