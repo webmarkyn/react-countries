@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { List } from 'antd';
 import {
-  Country_Country as CountryData,
+  Country as CountryData,
   CountryVariables,
 } from '../../lib/graphql/queries/Country/__generated__/Country';
 import { COUNTRY } from '../../lib/graphql/queries/Country';
@@ -14,11 +15,25 @@ const CountriesList = () => {
     {
       variables: {
         offset: page * OFFSET,
-        first: 12,
+        first: 10,
       },
     },
   );
-  return <h1>CountriesList</h1>;
+  if (!data || !data.Country) return <h1>Please Wait</h1>;
+  return (
+    <div className="countries-list-wrapper">
+      <List
+        className="countries-list-wrapper"
+        itemLayout="vertical"
+        loading={loading}
+        dataSource={data.Country}
+        pagination={{
+          onChange: (pageValue) => setPage(pageValue),
+          pageSize: 10,
+        }}
+      />
+    </div>
+  );
 };
 
 export default CountriesList;
