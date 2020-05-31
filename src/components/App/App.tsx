@@ -1,6 +1,7 @@
 import React from 'react';
+import CountriesList from '../CountriesList';
 import './index.css';
 
-const App = () => (<h1>Hello World</h1>);
+const App = () => <CountriesList />;
 
 export default App;

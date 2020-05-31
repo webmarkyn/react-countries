@@ -7,6 +7,8 @@ import {
 } from '../../lib/graphql/queries/Country/__generated__/Country';
 import { COUNTRY } from '../../lib/graphql/queries/Country';
 
+import './countries-list.css';
+
 const OFFSET = 10;
 const CountriesList = () => {
   const [page, setPage] = useState<number>(0);
@@ -15,7 +17,6 @@ const CountriesList = () => {
     {
       variables: {
         offset: page * OFFSET,
-        first: 10,
       },
     },
   );
@@ -28,14 +29,32 @@ const CountriesList = () => {
         itemLayout="vertical"
         loading={loading}
         dataSource={data.Country}
-        grid={{ gutter: 16, column: 4 }}
+        grid={{ gutter: 16, column: 4, sm: 2, xs: 1 }}
         pagination={{
           onChange: (pageValue) => setPage(pageValue),
-          pageSize: 10,
+          pageSize: 12,
+          hideOnSinglePage: true,
+          showLessItems: true,
+          showSizeChanger: false,
         }}
         renderItem={(country) => (
           <List.Item>
-            <Card title={country ? country.name : 'Unknown'}>Country</Card>
+            {country && country.flag ? (
+              <Card
+                title={country.name}
+                cover={
+                  <img
+                    alt="flag"
+                    src={country.flag.svgFile}
+                    className="country-image"
+                  />
+                }
+              >
+                Country
+              </Card>
+            ) : (
+              <Card title="Unknown" />
+            )}
           </List.Item>
         )}
       />

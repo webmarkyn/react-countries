@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import App from './components/App';
+
+import './index.css';
+import 'antd/dist/antd.css';
 
 const client = new ApolloClient({
   uri: 'https://countries-274616.ew.r.appspot.com',
