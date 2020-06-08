@@ -27,6 +27,8 @@ module.exports = {
     'no-confusing-arrow': 0,
     'function-paren-newline': 0,
     'import/prefer-default-export': 'off',
+    'react/jsx-one-expression-per-line': 0,
+    'object-curly-newline': 0,
     'implicit-arrow-linebreak': 0,
     indent: 0,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
