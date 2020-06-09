@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CountriesList from '../CountriesList';
 import './index.css';
+import Country from '../Country';
 
 const App = () => (
   <Router>
@@ -10,7 +11,7 @@ const App = () => (
         <CountriesList />
       </Route>
       <Route path="/:country" exact>
-        <h1>Country</h1>
+        <Country />
       </Route>
     </Switch>
   </Router>

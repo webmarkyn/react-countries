@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Card, List, Input } from 'antd';
+import { Link } from 'react-router-dom';
 import {
   Country as CountryData,
   CountryVariables,
@@ -61,19 +62,21 @@ const CountriesList = () => {
         renderItem={(country) => (
           <List.Item>
             {country && country.flag ? (
-              <Card
-                hoverable
-                title={country.name}
-                cover={
-                  <img
-                    alt="flag"
-                    src={country.flag.svgFile}
-                    className="country-image"
-                  />
-                }
-              >
-                Country
-              </Card>
+              <Link to={`/${country.name}`}>
+                <Card
+                  hoverable
+                  title={country.name}
+                  cover={
+                    <img
+                      alt="flag"
+                      src={country.flag.svgFile}
+                      className="country-image"
+                    />
+                  }
+                >
+                  Country
+                </Card>
+              </Link>
             ) : (
               <Card title="Unknown" />
             )}
