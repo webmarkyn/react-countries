@@ -45,7 +45,7 @@ const Country = () => {
   return (
     <div className="country">
       <Link to="/">
-        <Button>{'< Back'}</Button>
+        <Button style={{ marginBottom: '50px' }}>{'< Back'}</Button>
       </Link>
       <Row gutter={16}>
         <Col span={14} className="country-flag">
